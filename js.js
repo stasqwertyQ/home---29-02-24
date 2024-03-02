@@ -99,12 +99,10 @@ const users =  [
 
 
 const calculateTotalBalance = users => {
-    let totalBalance = 0;
-  for (const user of users) {
-    totalBalance += user.balance;
-  }
-  return totalBalance;
-}
+  return users.map((user) => user.balance).reduce((acc, user) => {
+    return acc + user
+  }, 0);
+};
 
 
 console.log(calculateTotalBalance(users)); // 20916
